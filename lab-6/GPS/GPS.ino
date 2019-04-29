@@ -3,7 +3,7 @@
 gpsSentenceInfoStruct info;
 char buff[256];
 char nors[2], eorw[2];
-String latitude, longitude;
+String latitude_str, longitude_str;
 
 static unsigned char getComma(unsigned char num,const char *str)
 {
@@ -99,7 +99,7 @@ void parseGPGGA(const char* GPGGAstr)
     
     sprintf(buff, "latitude = %10.4f, longitude = %10.4f", latitude, longitude);
     Serial.println(buff); 
-    Serial.println("(after) latitudet = " + String(latitude) + " longitude = " + String(longitude));
+    Serial.println("(after) latitudet = " + latitude_str + " longitude = " + longitude_str);
     
     tmp = getComma(7, GPGGAstr);
     num = getIntNumber(&GPGGAstr[tmp]);    
@@ -134,7 +134,7 @@ void convertCoords(float tmplat, float tmplong, const char* n_or_s, const char* 
   }
 
   sprintf(buff, "%.7f", lat_return);   
-  latitude = buff;
+  latitude_str = buff;
   
   /*
   Longitude  00004.5337,W  --> 00d 04.5337' W
@@ -153,7 +153,7 @@ void convertCoords(float tmplat, float tmplong, const char* n_or_s, const char* 
   }
 
   sprintf(buff, "%.7f", lon_return); 
-  longitude = buff;
+  longitude_str = buff;
 }
 
 
