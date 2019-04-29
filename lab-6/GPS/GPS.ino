@@ -99,6 +99,7 @@ void parseGPGGA(const char* GPGGAstr)
     
     sprintf(buff, "latitude = %10.4f, longitude = %10.4f", latitude, longitude);
     Serial.println(buff); 
+    Serial.println("(after) latitudet = " + String(latitude) + " longitude = " + String(longitude));
     
     tmp = getComma(7, GPGGAstr);
     num = getIntNumber(&GPGGAstr[tmp]);    
