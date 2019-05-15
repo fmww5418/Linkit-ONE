@@ -10,7 +10,6 @@ int X0, X1, Y0, Y1, Z1, Z0, X, Y, Z;
 void setup(){
     Serial.begin(9600);
     Serial.println("Start : \n------------------------------------");
-    LTask.remoteCall((remote_call_ptr)createTimer, NULL);
     
     Wire.begin();  //初始化 I2C
     setReg(0x2D, 0xA); // (打開電源, 設定輸出資料速度為 100 Hz)  
