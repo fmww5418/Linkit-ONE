@@ -1,7 +1,4 @@
 #include <Wire.h>
-#include "LTask.h"
-#include "vmtimer.h"
-int pin = 8;
 
 int I2C_Address = 0xA7 >> 1; // ADXL345 的 I2C 地址
 
